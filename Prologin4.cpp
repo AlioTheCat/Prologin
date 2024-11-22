@@ -7,12 +7,12 @@ using namespace std;
 /// \param valeur la valeur du marché du jour
 /// \param boites le contenu de chaque boite
 
-int deux_parmi_n (int n) {
-    return n*(n-1)/2;
+long long int deux_parmi_n (long long int n) {
+    return (long long int)n*(n-1)/2;
 }
 
 void le_juste_etal(int n, int valeur, const vector<int>& boites) {
-    int N = 0; // Le futur nombre de séries justes
+    long long int N = 0; // Le futur nombre de séries justes
     int S_part = 0;
     map<int,int> S_mod_count;
     
@@ -25,7 +25,7 @@ void le_juste_etal(int n, int valeur, const vector<int>& boites) {
     }
     
     for (auto item : S_mod_count){
-        int reste = item.first ; int val = item.second;
+        int reste = item.first ; long long int val = item.second;
         if (reste == 0) N = ( N + deux_parmi_n(val+1)%1000000007 )%1000000007;
         else N = ( N + deux_parmi_n(val)%1000000007 )%1000000007;
     }
